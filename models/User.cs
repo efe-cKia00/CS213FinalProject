@@ -21,11 +21,11 @@ namespace CS212FinalProject.Models
         public string Email { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(10), RegularExpression(@"^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$")
+        [StringLength(10), RegularExpression(@"^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$")]
         public decimal PhoneNumber { get; set; }
 
         [Required]
-        [StringLength(10), RegularExpression(@"^(Customer|ServiceProvider|Receptionist|Manager)$)")]
+        [StringLength(10), RegularExpression(@"^(Customer|ServiceProvider|Receptionist|Manager)$")]
         public string Role { get; set; } = string.Empty;
     }
 }
