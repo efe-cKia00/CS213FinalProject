@@ -17,15 +17,15 @@ namespace CS212FinalProject.Models
         public string LastName { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(25)]
+        [StringLength(25), RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")]
         public string Email { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(10)]
+        [StringLength(10), RegularExpression(@"^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$")
         public decimal PhoneNumber { get; set; }
 
         [Required]
-        [StringLength(10)]
-        public string Role { get; set; }
+        [StringLength(10), RegularExpression(@"^(Customer|ServiceProvider|Receptionist|Manager)$)")]
+        public string Role { get; set; } = string.Empty;
     }
 }
