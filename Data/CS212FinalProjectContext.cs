@@ -14,6 +14,7 @@ namespace CS212FinalProject.Data
         {
         }
 
+        public DbSet<CS212FinalProject.Models.Service> Service { get; set; } = default!;
         // single, idiomatic DbSet name
         public DbSet<User> Users { get; set; } = null!;
 

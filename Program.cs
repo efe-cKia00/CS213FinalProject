@@ -9,6 +9,12 @@ using Shared.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContextFactory<CS212FinalProjectContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CS212FinalProjectContext") ?? throw new InvalidOperationException("Connection string 'CS212FinalProjectContext' not found.")));
+
+builder.Services.AddQuickGridEntityFrameworkAdapter();
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDbContextFactory<CS212FinalProjectContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CS212FinalProjectContext") ?? throw new InvalidOperationException("Connection string 'CS212FinalProjectContext' not found.")));
