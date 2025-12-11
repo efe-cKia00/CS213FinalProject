@@ -42,7 +42,7 @@
       </div>
 
       <div class="d-flex justify-content-between align-items-center">
-        <a href="/CreateAccount" class="hp-link-black">Create account</a>
+        <a href="/app" class="hp-link-black">Sign In</a>
         <button class="hp-link-white" type="submit" disabled="@isSubmitting">
           @(isSubmitting ? "Signing in..." : "Sign in")
         </button>
@@ -68,7 +68,7 @@
         if (result)
         {
             // TODO: Navigate to the appropriate page after successful sign-in
-            NavigationManager.NavigateTo("/");
+            NavigationManager.NavigateTo("/app");
         }
         else
         {
