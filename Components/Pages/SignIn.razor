@@ -1,6 +1,8 @@
 ﻿@page "/sign-in"
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Authorization
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthStateProvider
 @inject IAuthService SignInService
 <!--rendermode InteractiveServer-->
 
@@ -28,9 +30,6 @@
                 <label for="password" class="form-label">Password</label>
                 <div class="input-group">
                     <InputText id="password" type="@(showPassword ? "text" : "password")" class="form-control" @bind-Value="Model.Password" />
-                    <span class="input-group-text">
-                        <input type="checkbox" @bind="showPassword" aria-label="Show password" /> Show
-                    </span>
                 </div>    
                 <ValidationMessage For="@(() => Model.Password)" class="text-danger" />
             </div>
@@ -54,6 +53,17 @@
     private bool isSubmitting = false;
     private string? Message = null;
     private bool showPassword;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            NavigationManager.NavigateTo("/app");
+        }
+    }
 
     private async Task HandleValidSubmit()
     {

@@ -92,10 +92,10 @@
                                             <td>@appt.DateAndTime.ToString("g")</td>
                                             <td>
                                                 <select class="form-select" @bind="selectedStatus[appt.Id]">
-                                                    @foreach (var s in statusOptions)
-                                                    {
-                                                        <option value="@s">@s</option>
-                                                    }
+                                                    <option value="">-- choose status --</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="CheckedIn">CheckedIn</option>
+                                                    <option value="Canceled">Canceled</option>
                                                 </select>
                                             </td>
                                             <td>
@@ -195,11 +195,9 @@
                                             <td>@($"{appt.Customer?.FirstName} {appt.Customer?.LastName}")</td>
                                             <td>@appt.DateAndTime.ToString("g")</td>
                                             <td>
-                                                <select class="form-select" @bind="selectedStatus[appt.Id]">
-                                                    @foreach (var s in statusOptions)
-                                                    {
-                                                        <option value="@s">@s</option>
-                                                    }
+                                                <select class="form-select" @bind="selectedStatus[appt.Id]">                                                    
+                                                    <option value="CheckedIn">CheckedIn</option>
+                                                    <option value="Completed">Completed</option>
                                                 </select>
                                             </td>
                                             <td>

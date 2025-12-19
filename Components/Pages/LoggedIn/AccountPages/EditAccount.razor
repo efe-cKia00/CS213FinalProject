@@ -46,7 +46,7 @@
                             <InputSelect class="form-select" @bind-Value="userToEdit.Role">
                                 @foreach (var role in Enum.GetValues(typeof(RoleType)))
                                 {
-                                    if ((RoleType)role != RoleType.Customer)
+                                    if ((RoleType)role != RoleType.ServiceProvider)
                                     {
                                         <option value="@role">@role.ToString()</option>
                                     }
@@ -73,6 +73,12 @@
 
     private User? userToEdit;
     private bool isAuthorized = false;
+    private enum RoleType
+    {
+        Receptionist,
+        ServiceProvider,
+        Manager
+    }
 
     protected override async Task OnInitializedAsync()
     {

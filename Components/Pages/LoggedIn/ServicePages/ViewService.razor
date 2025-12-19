@@ -22,7 +22,7 @@
             <h1>Available Services</h1>
             <hr />
             <AuthorizeView Roles="Manager">
-                <a class="btn btn-primary" href="@("/app/service/create")">New Service</a>
+                <a class="btn btn-primary my-3" href="@("/app/service/create")">New Service</a>
             </AuthorizeView>
             <div class="row mx-3">
                 @foreach (var service in services)
